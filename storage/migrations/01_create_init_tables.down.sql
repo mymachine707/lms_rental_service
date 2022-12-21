@@ -1,0 +1,6 @@
+BEGIN;
+
+DROP TABLE IF EXISTS "rental_book";
+DROP TYPE IF EXISTS "my_type";
+
+COMMIT;
