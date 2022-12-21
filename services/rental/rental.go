@@ -2,7 +2,6 @@ package rental
 
 import (
 	"context"
-	"fmt"
 	"lms/protogen/rental_service"
 	"lms/storage"
 
@@ -26,7 +25,6 @@ func NewRentalService(stg storage.StorageI) *rentalService {
 // CreateRental ...
 func (a *rentalService) CreateRental(c context.Context, req *rental_service.CreateRentalRequest) (*rental_service.Rental, error) {
 	id := uuid.New()
-	fmt.Println(id.String())
 	err := a.stg.CreateRental(id.String(), req)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "s.stg.CreateRental: %s", err.Error())
